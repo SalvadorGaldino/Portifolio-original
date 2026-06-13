@@ -107,14 +107,14 @@
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Telefone:</h4>
-                <p>+55 (41) 99967-2446</p>
+                <p>+55 (41) 99707-5291</p>
               </div>
             </div>
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="whatsapp-form" onsubmit="sendToWhatsApp(event)">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" required>
@@ -127,15 +127,29 @@
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
+                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Mensagem" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Enviando...</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Sua mensagem foi enviada com sucesso. Obrigado!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensagem</button></div>
+              <div class="text-center mt-3"><button type="submit">Enviar pelo WhatsApp</button></div>
             </form>
+
+            <script>
+              function sendToWhatsApp(e) {
+                e.preventDefault();
+                var name    = document.getElementById('name').value;
+                var email   = document.getElementById('email').value;
+                var subject = document.getElementById('subject').value;
+                var message = document.getElementById('message').value;
+                var text = "Olá, Salvador! Meu nome é " + name + "." +
+                           "
+E-mail: " + email +
+                           "
+Assunto: " + subject +
+                           "
+Mensagem: " + message;
+                var url = "https://wa.me/5541997075291?text=" + encodeURIComponent(text);
+                window.open(url, '_blank');
+              }
+            </script>
 
           </div>
 
@@ -173,15 +187,13 @@
             <p>
               <strong>Endereço:</strong> <br>
               Pontal do Paraná, Paraná, Brasil<br>
-              <strong>Telefone:</strong> +55 (41) 99967-2446<br>
+              <strong>Telefone:</strong> +55 (41) 99707-5291<br>
               <strong>Email:</strong> salvador.dev@gmail.com<br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://wa.me/5541997075291" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://www.instagram.com/heitorsalvador100/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
             </div>
 
           </div>
