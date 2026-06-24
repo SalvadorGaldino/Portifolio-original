@@ -1,8 +1,8 @@
 :root{
-  --first-color: #22034b;
-  --second-color: #7f0aec;
-  --third-color: #f4ecf7;
-  --fourth-color: #8f79aa;
+  --first-color: #0a2463;
+  --second-color: #1a6ef5;
+  --third-color: #eef4ff;
+  --fourth-color: #4a7cc7;
   --fift-color: #4d4b4d;
   --border-radius10px: 10px;
   --border-radius8px: 8px;
@@ -197,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(163, 123, 196, 0.25);
+  background: rgba(26, 110, 245, 0.15);
   transition: 0.3s;
   z-index: 999;
 }
@@ -277,7 +277,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #background:before {
   content: "";
-  background: rgba(163, 123, 196, 0.25);
+  background: rgba(26, 110, 245, 0.15);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -493,7 +493,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--first-color) 50%, rgba(163, 123, 196, 0.25) 52%);
+  background: radial-gradient(var(--first-color) 50%, rgba(26, 110, 245, 0.15) 52%);
   border-radius: var(--border-radius10px);
   display: block;
   position: absolute;
@@ -534,10 +534,10 @@ section {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: var(--border-radius10px);
-  border: 5px solid rgba(163, 123, 196, 0.25);
+  border: 5px solid rgba(26, 110, 245, 0.15);
   top: -15%;
   left: -15%;
-  background: rgba(163, 123, 196, 0.25);
+  background: rgba(26, 110, 245, 0.15);
 }
 
 .about .play-btn:hover::after {
@@ -823,7 +823,7 @@ section {
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid rgb(197, 195, 195);
-  background: rgba(163, 123, 196, 0.25);
+  background: rgba(26, 110, 245, 0.15);
 }
 
 .portfolio-wrap img {
@@ -908,14 +908,14 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: rgba(163, 123, 196, 0.25);
+  background: rgba(26, 110, 245, 0.15);
   border-radius: var(--border-radius10px);
   border: 1px solid rgb(197, 195, 195);
 }
 
 .projects .projects-wrap::before {
   content: "";
-  background: rgba(163, 123, 196, 0.25);
+  background: rgba(26, 110, 245, 0.15);
   position: absolute;
   left: 0;
   right: 0;
@@ -1114,7 +1114,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #f0f6e5;
+  background: #ddeeff;
   display: flex;
   justify-content: center;
   align-items: center;
