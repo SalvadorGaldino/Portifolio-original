@@ -732,6 +732,7 @@ section {
   opacity: 0.5;
   transition: 0.3s;
   width: 65px;
+  filter: hue-rotate(-45deg) saturate(1.4);
 }
 
 .clients .swiper-wrapper .swiper-slide img:hover {

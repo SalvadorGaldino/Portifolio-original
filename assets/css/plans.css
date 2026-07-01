@@ -1,0 +1,505 @@
+/* ============================================
+   PLANOS — ONDA TECH
+   Seção de preços premium, focada em conversão
+   Arquivo: assets/css/plans.css
+   ============================================ */
+
+.plans-section {
+  --plans-navy: var(--first-color, #0a2463);
+  --plans-navy-deep: #061537;
+  --plans-blue: var(--second-color, #1a6ef5);
+  --plans-ice: var(--third-color, #eef4ff);
+  --plans-blue-soft: var(--fourth-color, #4a7cc7);
+  --plans-gold: #ffb703;
+  --plans-gold-deep: #e09400;
+
+  position: relative;
+  background: linear-gradient(180deg, var(--plans-navy) 0%, var(--plans-navy-deep) 100%);
+  padding: 40px 0 100px;
+  overflow: hidden;
+}
+
+/* ---------- Ondas decorativas (assinatura da marca) ---------- */
+.plans-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 1;
+}
+
+.plans-wave--top {
+  top: -1px;
+}
+
+.plans-wave--bottom {
+  bottom: -1px;
+  transform: scaleY(-1);
+}
+
+.plans-wave svg {
+  width: 100%;
+  height: 70px;
+  display: block;
+}
+
+.plans-wave--top path {
+  fill: var(--plans-ice);
+}
+
+.plans-wave--bottom path {
+  fill: var(--plans-ice);
+}
+
+.plans-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(26, 110, 245, 0.06) 0px,
+      rgba(26, 110, 245, 0.06) 2px,
+      transparent 2px,
+      transparent 90px
+    );
+}
+
+.plans-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- HERO TEMÁTICO ---------- */
+.plans-hero {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 60px;
+  padding-top: 30px;
+}
+
+.plans-hero__badge {
+  display: inline-block;
+  background: rgba(255, 183, 3, 0.12);
+  border: 1px solid rgba(255, 183, 3, 0.4);
+  color: var(--plans-gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 50px;
+  margin-bottom: 22px;
+}
+
+.plans-hero__title {
+  color: var(--plans-ice);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+
+.plans-hero__subtitle {
+  color: rgba(238, 244, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 34px;
+}
+
+.plans-hero__stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.plans-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plans-hero__stat strong {
+  color: var(--plans-gold);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.plans-hero__stat span {
+  color: rgba(238, 244, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ---------- Grupos e rótulos ---------- */
+.plans-group {
+  margin-bottom: 30px;
+}
+
+.plans-group--support {
+  margin-top: 70px;
+}
+
+.plans-group__label {
+  color: var(--plans-gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 34px;
+  position: relative;
+}
+
+.plans-group__label::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: var(--plans-gold);
+  margin: 12px auto 0;
+  opacity: 0.6;
+}
+
+/* ---------- Grid de cards ---------- */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.plans-grid--support {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ---------- Card ---------- */
+.plan-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(238, 244, 255, 0.12);
+  border-radius: 18px;
+  padding: 34px 26px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(26, 110, 245, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.plan-card__icon {
+  font-size: 34px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.plan-card__title {
+  color: var(--plans-ice);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.plan-card__tagline {
+  color: rgba(238, 244, 255, 0.62);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 42px;
+}
+
+.plan-card__indicado {
+  color: rgba(238, 244, 255, 0.62);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: -8px 0 18px;
+}
+
+.plan-card__price-wrap {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(238, 244, 255, 0.1);
+}
+
+.plan-card__price-prefix {
+  color: rgba(238, 244, 255, 0.55);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.plan-card__price {
+  color: var(--plans-ice);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.plan-card__price--range {
+  font-size: 22px;
+}
+
+.plan-card__price-period {
+  color: rgba(238, 244, 255, 0.55);
+  font-size: 13px;
+}
+
+.plan-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.plan-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: rgba(238, 244, 255, 0.85);
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding-bottom: 11px;
+}
+
+.plan-card__features li i {
+  color: var(--plans-blue);
+  font-size: 16px;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.plan-card__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: rgba(238, 244, 255, 0.55);
+  font-size: 12.5px;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.plan-card__note i {
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+/* ---------- CTA ---------- */
+.plan-card__cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  background: transparent;
+  border: 2px solid var(--plans-blue);
+  color: var(--plans-ice);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 13px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+}
+
+.plan-card__cta i {
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.plan-card__cta span,
+.plan-card__cta {
+  z-index: 2;
+}
+
+.plan-card__cta::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--plans-blue);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.45s ease, height 0.45s ease;
+  z-index: 1;
+}
+
+.plan-card__cta:hover::before {
+  width: 340px;
+  height: 340px;
+}
+
+.plan-card__cta:hover {
+  border-color: var(--plans-blue);
+  transform: translateY(-2px);
+}
+
+.plan-card__cta:active {
+  transform: translateY(0);
+}
+
+.plan-card__cta--featured {
+  background: linear-gradient(135deg, var(--plans-gold), var(--plans-gold-deep));
+  border-color: var(--plans-gold);
+  color: var(--plans-navy-deep);
+}
+
+.plan-card__cta--featured::before {
+  background: var(--plans-ice);
+}
+
+.plan-card__cta--featured:hover {
+  border-color: var(--plans-ice);
+  color: var(--plans-navy-deep);
+}
+
+/* ---------- Card em destaque ---------- */
+.plan-card--featured {
+  background: linear-gradient(180deg, rgba(255, 183, 3, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 183, 3, 0.5);
+  box-shadow: 0 25px 60px rgba(255, 183, 3, 0.15);
+}
+
+.plan-card--featured:hover {
+  border-color: var(--plans-gold);
+  box-shadow: 0 25px 60px rgba(255, 183, 3, 0.28);
+}
+
+.plan-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--plans-gold), var(--plans-gold-deep));
+  color: var(--plans-navy-deep);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(255, 183, 3, 0.45);
+}
+
+/* ---------- Cards de suporte (compactos) ---------- */
+.plan-card--compact {
+  padding: 30px 24px 26px;
+}
+
+/* ---------- Animação de entrada (reveal) ---------- */
+.plan-card {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.plan-card.plans-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.plan-card.plans-in-view:hover {
+  transform: translateY(-8px);
+}
+
+.plans-hero {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.plans-hero.plans-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.plans-group__label {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.plans-group__label.plans-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-card,
+  .plans-hero,
+  .plans-group__label {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .plan-card:hover {
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 1199px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plans-grid--support {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .plans-section {
+    padding: 20px 0 70px;
+  }
+
+  .plans-hero__title {
+    font-size: 27px;
+  }
+
+  .plans-hero__subtitle {
+    font-size: 14.5px;
+  }
+
+  .plans-hero__stats {
+    gap: 26px;
+  }
+
+  .plans-grid,
+  .plans-grid--support {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-card {
+    padding: 30px 22px 26px;
+  }
+
+  .plan-card__price {
+    font-size: 28px;
+  }
+}
