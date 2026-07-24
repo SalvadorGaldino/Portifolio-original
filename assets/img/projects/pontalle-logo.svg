@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1.4" fill="#ffffff" fill-opacity="0.10" />
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E21C21" />
+      <stop offset="100%" stop-color="#B81418" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)" />
+  <rect width="800" height="600" fill="url(#dots)" />
+
+  <!-- moldura sutil -->
+  <rect x="40" y="40" width="720" height="520" rx="24" fill="none" stroke="#F6F2EA" stroke-opacity="0.18" stroke-width="2" />
+
+  <!-- icone simples de cama, remetendo ao nicho colchao / cama box -->
+  <g transform="translate(295,150)">
+    <rect x="0" y="60" width="210" height="22" rx="6" fill="#F6F2EA" fill-opacity="0.9" />
+    <rect x="-8" y="80" width="226" height="34" rx="14" fill="#F6F2EA" />
+    <rect x="-8" y="80" width="226" height="11" rx="6" fill="#E8DFD2" />
+    <rect x="14" y="36" width="38" height="28" rx="8" fill="#F6F2EA" fill-opacity="0.9" />
+    <rect x="60" y="36" width="38" height="28" rx="8" fill="#F6F2EA" fill-opacity="0.9" transform="rotate(3 79 50)" />
+    <rect x="-14" y="108" width="12" height="34" fill="#16191F" fill-opacity="0.55" />
+    <rect x="212" y="108" width="12" height="34" fill="#16191F" fill-opacity="0.55" />
+  </g>
+
+  <!-- wordmark -->
+  <text x="400" y="330" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif"
+        font-size="22" font-weight="600" letter-spacing="4" fill="#F6F2EA" fill-opacity="0.92">
+    MÓVEIS
+  </text>
+  <text x="400" y="400" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="76" font-weight="700" fill="#F6F2EA">
+    Pontalle
+  </text>
+
+  <!-- linha decorativa -->
+  <rect x="320" y="430" width="160" height="3" rx="1.5" fill="#F6F2EA" fill-opacity="0.55" />
+
+  <text x="400" y="466" text-anchor="middle" font-family="'Courier New', monospace"
+        font-size="15" letter-spacing="2" fill="#F6F2EA" fill-opacity="0.8">
+    BASE BOX · COLCHÕES · CONJUNTOS
+  </text>
+
+</svg>

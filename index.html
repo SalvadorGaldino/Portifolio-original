@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- SEO Primary -->
+  <meta name="description" content="Onda Tech: tecnologia para empresas. Desenvolvemos sites profissionais, sistemas sob medida, automações e integrações que ajudam pequenas e médias empresas a crescer.">
+  <meta name="keywords" content="tecnologia para empresas, sites profissionais, sistemas web sob medida, automação de processos, landing pages, SEO, Onda Tech, desenvolvimento web Paraná">
+  <meta name="author" content="Onda Tech">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ondatech.vercel.app/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ondatech.vercel.app/">
+  <meta property="og:title" content="Onda Tech | Tecnologia para Empresas">
+  <meta property="og:description" content="Ajudamos empresas a crescer através da tecnologia. Sites, sistemas, automações e integrações sob medida.">
+  <meta property="og:image" content="https://ondatech.vercel.app/assets/img/ondatec_profile_logo.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Onda Tech">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Onda Tech | Tecnologia para Empresas">
+  <meta name="twitter:description" content="Ajudamos empresas a crescer através da tecnologia. Sites, sistemas, automações e integrações sob medida.">
+  <meta name="twitter:image" content="https://ondatech.vercel.app/assets/img/ondatec_profile_logo.png">
+
+  <!-- Schema.org JSON-LD — Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Onda Tech",
+    "alternateName": "Onda Tech - Tecnologia para Empresas",
+    "url": "https://ondatech.vercel.app",
+    "logo": "https://ondatech.vercel.app/assets/img/logo.png",
+    "image": "https://ondatech.vercel.app/assets/img/ondatec_profile_logo.png",
+    "description": "Empresa de tecnologia que desenvolve sites, sistemas web sob medida, automações e integrações para pequenas e médias empresas.",
+    "email": "salvador.dev@gmail.com",
+    "telephone": "+55-41-99707-5291",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pontal do Paraná",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/ondatechdev/",
+      "https://wa.me/5541997075291",
+      "https://www.linkedin.com/in/onda-tech/"
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desenvolvimento de Sites Profissionais" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas Web Sob Medida" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automação de Processos" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integrações entre Sistemas" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Painéis Administrativos" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção e Suporte" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inteligência Artificial para Empresas" } }
+    ]
+  }
+  </script>
+
+  <title>Onda Tech | Tecnologia para Empresas</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700|Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <!-- Onda Tech Design System 2.0 -->
+  <link href="assets/css/onda-theme.css" rel="stylesheet">
+</head>
+
+<body class="ot-page ot-dark-header">
+
+  <!--START - HEADER-->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light">
+          <a href="index.html">
+            <img src="assets/img/logo.png" alt="Onda Tech">
+          </a>
+        </h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active" href="index.html">Início</a></li>
+          <li><a href="about.html">Sobre</a></li>
+          <li><a href="services.html">Serviços</a></li>
+          <li><a href="services.html#planos">Planos</a></li>
+          <li><a href="projects.html">Projetos</a></li>
+          <li><a href="contact.html">Contato</a></li>
+          <li><a href="https://wa.me/5541997075291?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20Onda%20Tech." target="_blank" class="ot-nav-cta">Solicitar orçamento</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header><!--END - HEADER-->
+
+  <!--START - HERO-->
+  <section class="ot-hero">
+
+    <!-- Assinatura visual: corrente/onda atravessando o hero -->
+    <div class="ot-hero__current" aria-hidden="true">
+      <svg viewBox="0 0 1440 500" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="ot-grad-a" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1a6ef5" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#5b9cff" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="ot-grad-b" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#1a6ef5" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="line-a" d="M-100,120 C 250,40 450,220 750,140 S 1250,60 1550,160"/>
+        <path class="line-b" d="M-100,260 C 300,340 500,180 800,260 S 1300,340 1550,240"/>
+      </svg>
+    </div>
+
+    <div class="ot-container">
+      <div class="ot-hero__inner" data-aos="fade-up">
+        <span class="ot-hero__badge"><i class="bi bi-cpu"></i> Tecnologia para Empresas</span>
+
+        <h1>Ajudamos empresas a <span>crescer através da tecnologia</span></h1>
+
+        <p class="ot-lead">
+          Desenvolvemos sites, sistemas e soluções digitais sob medida para pequenas e médias empresas
+          que querem mais organização, credibilidade e clientes chegando todos os dias.
+        </p>
+
+        <div class="ot-hero__actions">
+          <a href="contact.html" class="ot-btn ot-btn-primary ot-btn-lg">
+            <i class="bi bi-send"></i> Solicitar orçamento
+          </a>
+          <a href="projects.html" class="ot-btn ot-btn-ghost ot-btn-lg">
+            Ver projetos
+          </a>
+        </div>
+
+        <div class="ot-diffs">
+          <div class="ot-diffs__item"><i class="bi bi-check-circle-fill"></i> Desenvolvimento sob medida</div>
+          <div class="ot-diffs__item"><i class="bi bi-check-circle-fill"></i> Design moderno</div>
+          <div class="ot-diffs__item"><i class="bi bi-check-circle-fill"></i> Atendimento rápido</div>
+          <div class="ot-diffs__item"><i class="bi bi-check-circle-fill"></i> SEO</div>
+          <div class="ot-diffs__item"><i class="bi bi-check-circle-fill"></i> Responsivo</div>
+          <div class="ot-diffs__item"><i class="bi bi-check-circle-fill"></i> Suporte contínuo</div>
+        </div>
+      </div>
+    </div>
+  </section><!--END - HERO-->
+
+  <!--START - MAIN-->
+  <main id="main" style="margin-top: 0;">
+
+    <!--START - SECTION - SERVIÇOS-->
+    <section id="services" class="ot-section ot-section--light">
+      <div class="ot-container">
+
+        <div class="ot-section-head text-center" data-aos="fade-up">
+          <span class="ot-eyebrow">O que fazemos</span>
+          <h2 class="ot-h2">Soluções completas para sua empresa vender e operar melhor</h2>
+          <p class="ot-lead">Não entregamos apenas sites. Entregamos ferramentas que resolvem problemas reais do seu negócio.</p>
+        </div>
+
+        <div class="ot-services-grid">
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="ot-service-card__icon"><i class="bi bi-window"></i></div>
+            <h3>Sites Profissionais</h3>
+            <p>Sites institucionais rápidos, responsivos e otimizados para transmitir credibilidade e gerar contato.</p>
+            <a class="ot-card-link" href="services.html#sites">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="ot-service-card__icon"><i class="bi bi-diagram-3"></i></div>
+            <h3>Sistemas Web Sob Medida</h3>
+            <p>Sistemas com login, banco de dados e painel administrativo, construídos para a rotina real da sua empresa.</p>
+            <a class="ot-card-link" href="services.html#sistemas">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ot-service-card__icon"><i class="bi bi-lightning-charge"></i></div>
+            <h3>Landing Pages</h3>
+            <p>Páginas de alta conversão para campanhas, lançamentos e captação de leads qualificados.</p>
+            <a class="ot-card-link" href="services.html#landing-pages">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="ot-service-card__icon"><i class="bi bi-gear-wide-connected"></i></div>
+            <h3>Automação de Processos</h3>
+            <p>Eliminamos tarefas manuais e repetitivas, conectando ferramentas para sua equipe ganhar tempo.</p>
+            <a class="ot-card-link" href="services.html#automacao">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="ot-service-card__icon"><i class="bi bi-plug"></i></div>
+            <h3>Integrações entre Sistemas</h3>
+            <p>Conectamos seu site, ERP, planilhas, WhatsApp e outras ferramentas em um fluxo único e confiável.</p>
+            <a class="ot-card-link" href="services.html#integracoes">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ot-service-card__icon"><i class="bi bi-speedometer2"></i></div>
+            <h3>Painéis Administrativos</h3>
+            <p>Dashboards sob medida para acompanhar dados, pedidos e indicadores do seu negócio em tempo real.</p>
+            <a class="ot-card-link" href="services.html#paineis">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="ot-service-card__icon"><i class="bi bi-search"></i></div>
+            <h3>SEO</h3>
+            <p>Otimização para os buscadores para sua empresa ser encontrada por quem já está procurando o que você vende.</p>
+            <a class="ot-card-link" href="services.html#seo">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="ot-service-card__icon"><i class="bi bi-tools"></i></div>
+            <h3>Manutenção e Suporte</h3>
+            <p>Planos mensais para manter seu site ou sistema sempre atualizado, seguro e funcionando.</p>
+            <a class="ot-card-link" href="services.html#suporte">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="ot-service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ot-service-card__icon"><i class="bi bi-robot"></i></div>
+            <h3>Inteligência Artificial para Empresas</h3>
+            <p>Assistentes virtuais, automações inteligentes e uso prático de IA para ganhar eficiência no dia a dia.</p>
+            <a class="ot-card-link" href="services.html#ia">Saiba mais <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </section><!--END - SECTION - SERVIÇOS-->
+
+    <!--START - SECTION - COMO TRABALHAMOS-->
+    <section id="como-trabalhamos" class="ot-section ot-section--light">
+      <div class="ot-container">
+
+        <div class="ot-section-head text-center" data-aos="fade-up">
+          <span class="ot-eyebrow">Processo</span>
+          <h2 class="ot-h2">Como trabalhamos</h2>
+          <p class="ot-lead">Um processo claro, do primeiro contato até o suporte contínuo — sem surpresas no meio do caminho.</p>
+        </div>
+
+        <div class="ot-process">
+          <div class="ot-process-step" data-aos="fade-up" data-aos-delay="0">
+            <div class="ot-process-step__num">1</div>
+            <h4>Contato</h4>
+            <p>Você nos conta sobre sua empresa e o problema que precisa resolver.</p>
+          </div>
+          <div class="ot-process-step" data-aos="fade-up" data-aos-delay="80">
+            <div class="ot-process-step__num">2</div>
+            <h4>Planejamento</h4>
+            <p>Definimos escopo, prazos e a melhor solução para o seu caso.</p>
+          </div>
+          <div class="ot-process-step" data-aos="fade-up" data-aos-delay="160">
+            <div class="ot-process-step__num">3</div>
+            <h4>Desenvolvimento</h4>
+            <p>Construímos a solução com atualizações periódicas sobre o andamento.</p>
+          </div>
+          <div class="ot-process-step" data-aos="fade-up" data-aos-delay="240">
+            <div class="ot-process-step__num">4</div>
+            <h4>Entrega</h4>
+            <p>Revisamos tudo com você e colocamos no ar.</p>
+          </div>
+          <div class="ot-process-step" data-aos="fade-up" data-aos-delay="320">
+            <div class="ot-process-step__num">5</div>
+            <h4>Suporte</h4>
+            <p>Acompanhamento contínuo para sua solução evoluir junto com sua empresa.</p>
+          </div>
+        </div>
+
+      </div>
+    </section><!--END - SECTION - COMO TRABALHAMOS-->
+
+    <!--START - SECTION - PROJETOS EM DESTAQUE-->
+    <section id="projetos-destaque" class="ot-section ot-section--light">
+      <div class="ot-container">
+
+        <div class="ot-section-head text-center" data-aos="fade-up">
+          <span class="ot-eyebrow">Resultados reais</span>
+          <h2 class="ot-h2">Projetos em destaque</h2>
+          <p class="ot-lead">Mais do que tecnologia: cada projeto resolve um problema de negócio específico.</p>
+        </div>
+
+        <div class="ot-case-grid">
+
+          <div class="ot-case-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="ot-case-card__img" style="background-image:url('https://imobiliaria-beige-three.vercel.app/img/hero/hero-principal.jpg');">
+              <span class="ot-case-card__tag">Imobiliária</span>
+            </div>
+            <div class="ot-case-card__body">
+              <h3>Horizonte Imóveis</h3>
+              <div class="ot-case-card__row">
+                <span class="label">Problema</span>
+                <p>A empresa não tinha presença digital para apresentar seus imóveis aos clientes.</p>
+              </div>
+              <div class="ot-case-card__row">
+                <span class="label">Solução</span>
+                <p>Site imobiliário completo, com busca por categoria, filtros e páginas individuais para cada imóvel.</p>
+              </div>
+              <div class="ot-case-card__row">
+                <span class="label">Resultado</span>
+                <p>Mais credibilidade junto aos clientes e um canal direto de contato via WhatsApp.</p>
+              </div>
+              <a class="ot-case-card__cta" href="projects.html">Ver projeto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="ot-case-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ot-case-card__img" style="background-image:url('assets/img/projects/constra-logo.png'); background-color:#fff; background-size: contain; background-repeat: no-repeat;">
+              <span class="ot-case-card__tag">Construção</span>
+            </div>
+            <div class="ot-case-card__body">
+              <h3>Constra</h3>
+              <div class="ot-case-card__row">
+                <span class="label">Problema</span>
+                <p>Construtora sem site institucional, perdendo credibilidade diante de concorrentes já digitais.</p>
+              </div>
+              <div class="ot-case-card__row">
+                <span class="label">Solução</span>
+                <p>Site institucional completo, traduzido e adaptado, com contato direto por WhatsApp em cada seção.</p>
+              </div>
+              <div class="ot-case-card__row">
+                <span class="label">Resultado</span>
+                <p>Presença digital sólida e canal direto de contato com novos clientes.</p>
+              </div>
+              <a class="ot-case-card__cta" href="projects.html">Ver projeto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="ot-case-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="ot-case-card__img" style="background-image:url('assets/img/projects/ondatech-moveis-banner.png'); background-size: cover; background-position: center;">
+              <span class="ot-case-card__tag">Varejo</span>
+            </div>
+            <div class="ot-case-card__body">
+              <h3>Onda Tech Móveis</h3>
+              <div class="ot-case-card__row">
+                <span class="label">Problema</span>
+                <p>Rede de lojas de móveis sem catálogo digital centralizado para seus produtos.</p>
+              </div>
+              <div class="ot-case-card__row">
+                <span class="label">Solução</span>
+                <p>Site com mega-menu de categorias e número de WhatsApp exclusivo para cada loja.</p>
+              </div>
+              <div class="ot-case-card__row">
+                <span class="label">Resultado</span>
+                <p>Atendimento mais rápido e organizado, direcionado à unidade certa.</p>
+              </div>
+              <a class="ot-case-card__cta" href="projects.html">Ver projeto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a href="projects.html" class="ot-btn ot-btn-ghost">Ver todos os projetos</a>
+        </div>
+
+      </div>
+    </section><!--END - SECTION - PROJETOS EM DESTAQUE-->
+
+    <!--START - SECTION - DEPOIMENTOS-->
+    <section id="depoimentos" class="ot-section ot-section--tight ot-section--light">
+      <div class="ot-container">
+
+        <div class="ot-section-head text-center" data-aos="fade-up">
+          <span class="ot-eyebrow">Confiança</span>
+          <h2 class="ot-h2">O que nossos clientes dizem</h2>
+        </div>
+
+        <!--
+          Espaço preparado para depoimentos reais.
+          Substitua os cards abaixo por depoimentos de clientes
+          (nome da empresa + foto/logo + citação curta) assim que
+          forem coletados.
+        -->
+        <div class="ot-testimonial-grid">
+          <div class="ot-testimonial-card" data-aos="fade-up" data-aos-delay="0">
+            <i class="bi bi-quote"></i>
+            <p>Em breve, depoimentos reais de empresas que já confiam na Onda Tech.</p>
+          </div>
+          <div class="ot-testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="bi bi-quote"></i>
+            <p>Em breve, depoimentos reais de empresas que já confiam na Onda Tech.</p>
+          </div>
+          <div class="ot-testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-quote"></i>
+            <p>Em breve, depoimentos reais de empresas que já confiam na Onda Tech.</p>
+          </div>
+        </div>
+
+      </div>
+    </section><!--END - SECTION - DEPOIMENTOS-->
+
+    <!--START - SECTION - CTA FINAL-->
+    <section class="ot-final-cta">
+      <div class="ot-container ot-final-cta__inner" data-aos="fade-up">
+        <h2>Vamos transformar sua empresa com tecnologia?</h2>
+        <p>Fale agora com a Onda Tech e receba uma proposta sob medida para o seu negócio.</p>
+        <a href="https://wa.me/5541997075291?text=Ol%C3%A1!%20Quero%20transformar%20minha%20empresa%20com%20tecnologia.%20Podemos%20conversar%3F" target="_blank" class="ot-btn ot-btn-whatsapp ot-btn-lg">
+          <i class="bi bi-whatsapp"></i> Falar no WhatsApp
+        </a>
+      </div>
+    </section><!--END - SECTION - CTA FINAL-->
+
+  </main><!--END - MAIN-->
+
+  <!--START - FOOTER-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row justify-content-center">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <img src="assets/img/logo-2.png" alt="Onda Tech">
+            <p>Tecnologia para empresas. Desenvolvemos sites, sistemas e soluções digitais que ajudam pequenas e médias empresas a crescer.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Links Úteis</h4>
+            <ul>
+              <li><a href="index.html">Início</a></li>
+              <li><a href="about.html">Sobre</a></li>
+              <li><a href="services.html">Serviços</a></li>
+              <li><a href="projects.html">Projetos</a></li>
+              <li><a href="contact.html">Contato</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Entre em Contato</h4>
+            <p>
+              <strong>Localização:</strong> <br>
+              Pontal do Paraná - Paraná, Brasil <br>
+              <strong>Telefone:</strong> (41) 99707-5291<br>
+              <strong>Email:</strong> salvador.dev@gmail.com<br>
+            </p>
+
+            <div class="social-links">
+              <a href="https://wa.me/5541997075291" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://www.instagram.com/ondatechdev/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/onda-tech/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+          </div>
+      </div>
+    </div>
+
+  </footer><!--END - FOOTER-->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Reveal on scroll (elementos .ot-reveal) -->
+  <script>
+    (function () {
+      var targets = document.querySelectorAll('.ot-reveal');
+      if (!targets.length) return;
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('ot-in-view'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('ot-in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

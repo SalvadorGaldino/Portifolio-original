@@ -1,0 +1,977 @@
+/* ============================================================
+   ONDA TECH — DESIGN SYSTEM 2.0
+   "Tecnologia para Empresas"
+   Arquivo: assets/css/onda-theme.css
+
+   Carregar DEPOIS de style.css e responsive.css.
+   Este arquivo governa a nova identidade visual premium:
+   navy profundo + preto + azul elétrico, com o motivo de
+   "onda/corrente" (a marca Onda Tech, literalmente) como
+   elemento de assinatura conectando as seções.
+   ============================================================ */
+
+:root {
+  /* Base */
+  --ot-bg: #060b18;
+  --ot-navy-900: #0a1630;
+  --ot-navy-800: #0f2049;
+  --ot-navy-700: #142a5e;
+  --ot-blue: #1a6ef5;
+  --ot-blue-light: #5b9cff;
+  --ot-cyan: #22d3ee;
+  --ot-ice: #eef4ff;
+  --ot-slate: #93a0c2;
+  --ot-slate-dark: #5c6a8f;
+  --ot-white: #ffffff;
+  --ot-line: rgba(238, 244, 255, 0.1);
+
+  /* Superfícies claras (usadas na maior parte do site) */
+  --ot-page-bg: #f4f7fc;
+  --ot-card-bg: #ffffff;
+  --ot-card-border: rgba(10, 22, 48, 0.08);
+  --ot-text-dark: #101a38;
+  --ot-text-muted: #55628c;
+
+  /* Tipografia */
+  --ot-font-display: 'Poppins', sans-serif;
+  --ot-font-body: 'Open Sans', sans-serif;
+  --ot-font-label: 'Raleway', sans-serif;
+
+  /* Espaçamento / raio */
+  --ot-radius-sm: 10px;
+  --ot-radius-md: 16px;
+  --ot-radius-lg: 24px;
+  --ot-section-y: 120px;
+}
+
+/* ---------- Reset pontual / utilitários ---------- */
+.ot-page {
+  background: var(--ot-page-bg);
+  color: var(--ot-text-dark);
+}
+
+.ot-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ot-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ot-font-label);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ot-cyan);
+}
+
+.ot-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: var(--ot-cyan);
+  border-radius: 2px;
+}
+
+.ot-h2 {
+  font-family: var(--ot-font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.2;
+  color: var(--ot-white);
+  letter-spacing: -0.5px;
+}
+
+.ot-lead {
+  font-family: var(--ot-font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ot-slate);
+}
+
+.ot-section {
+  position: relative;
+  padding: var(--ot-section-y) 0;
+}
+
+.ot-section--tight {
+  padding: 70px 0;
+}
+
+.ot-section-head {
+  max-width: 640px;
+  margin: 0 0 56px;
+}
+
+.ot-section-head.text-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ot-section-head .ot-eyebrow {
+  margin-bottom: 16px;
+}
+
+.ot-section-head .ot-h2 {
+  margin: 0 0 16px;
+}
+
+/* ---------- Botões ---------- */
+.ot-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--ot-font-label);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.ot-btn:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.ot-btn-primary {
+  background: linear-gradient(135deg, var(--ot-blue), var(--ot-blue-light));
+  color: var(--ot-white);
+  box-shadow: 0 10px 30px rgba(26, 110, 245, 0.35);
+}
+
+.ot-btn-primary:hover {
+  box-shadow: 0 16px 40px rgba(26, 110, 245, 0.5);
+  color: var(--ot-white);
+}
+
+.ot-btn-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(238, 244, 255, 0.25);
+  color: var(--ot-ice);
+}
+
+.ot-btn-ghost:hover {
+  border-color: var(--ot-white);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ot-white);
+}
+
+.ot-btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+}
+
+.ot-btn-whatsapp:hover {
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.5);
+  color: #fff;
+}
+
+.ot-btn-lg {
+  padding: 18px 40px;
+  font-size: 16px;
+}
+
+/* Ghost button sobre fundo claro (seções --light) */
+.ot-section--light .ot-btn-ghost {
+  background: transparent;
+  border-color: rgba(16, 26, 56, 0.25);
+  color: var(--ot-text-dark);
+}
+
+.ot-section--light .ot-btn-ghost:hover {
+  border-color: var(--ot-navy-900);
+  background: rgba(16, 26, 56, 0.05);
+  color: var(--ot-text-dark);
+}
+
+/* ============================================================
+   HEADER — sobrescreve o header antigo para o tema escuro
+   ============================================================ */
+/* backdrop-filter só no desktop: em telas menores ele cria um
+   "containing block" que prende o menu mobile (position: fixed)
+   dentro da altura do header, escondendo as opções do menu */
+@media (min-width: 992px) {
+  body.ot-dark-header #header {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+}
+
+body.ot-dark-header #header {
+  background: rgba(6, 11, 24, 0.85);
+  border-bottom: 1px solid rgba(238, 244, 255, 0.08);
+}
+
+body.ot-dark-header #header.header-scrolled {
+  background: rgba(6, 11, 24, 0.97);
+}
+
+body.ot-dark-header .navbar a,
+body.ot-dark-header .navbar a:focus {
+  color: var(--ot-slate);
+  font-family: var(--ot-font-label);
+}
+
+body.ot-dark-header .navbar a:hover,
+body.ot-dark-header .navbar .active,
+body.ot-dark-header .navbar .active:focus,
+body.ot-dark-header .navbar li:hover > a {
+  color: var(--ot-white);
+}
+
+body.ot-dark-header .navbar .dropdown ul {
+  background: var(--ot-navy-900);
+  border: 1px solid rgba(238, 244, 255, 0.08);
+}
+
+body.ot-dark-header .navbar .dropdown ul a {
+  color: var(--ot-slate);
+}
+
+body.ot-dark-header .navbar .dropdown ul a:hover {
+  color: var(--ot-white);
+}
+
+body.ot-dark-header .mobile-nav-toggle {
+  color: var(--ot-white);
+}
+
+body.ot-dark-header .navbar-mobile ul {
+  background: rgba(6, 11, 24, 0.98);
+}
+
+.ot-nav-cta {
+  margin-left: 20px !important;
+  padding: 10px 22px !important;
+  border-radius: 50px !important;
+  background: linear-gradient(135deg, var(--ot-blue), var(--ot-blue-light));
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+/* Logo do header — sobrescreve a regra antiga (#header img: 240x20 fixo)
+   que distorcia a nova logo quadrada. Mantém proporção original. */
+.logo img,
+#header .logo img {
+  height: 52px !important;
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .logo img,
+  #header .logo img {
+    height: 42px !important;
+  }
+}
+
+/* Menu mobile em 100% de largura (o template antigo deixava 15px de
+   margem em cada lado — aqui o painel cobre a tela inteira) */
+@media (max-width: 991px) {
+  .navbar-mobile ul {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 90px 0 20px;
+    border-radius: 0;
+  }
+}
+
+/* ============================================================
+   PAGE HEADER — mini-hero para páginas internas
+   (Sobre, Serviços, Contato, Projetos, Equipe, Detalhes)
+   ============================================================ */
+.ot-page-header {
+  position: relative;
+  padding: 160px 0 60px;
+  background:
+    radial-gradient(ellipse 800px 400px at 15% -10%, rgba(26, 110, 245, 0.22), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 100% 0%, rgba(34, 211, 238, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--ot-bg) 0%, var(--ot-navy-900) 100%);
+  overflow: hidden;
+  text-align: center;
+}
+
+.ot-page-header__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ot-page-header h2 {
+  font-family: var(--ot-font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.5px;
+  color: var(--ot-white);
+  margin-bottom: 14px;
+}
+
+.ot-page-header p {
+  font-family: var(--ot-font-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ot-slate);
+  margin-bottom: 0;
+}
+
+.ot-page-header__crumbs {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  font-family: var(--ot-font-label);
+  font-size: 13px;
+  color: var(--ot-slate);
+}
+
+.ot-page-header__crumbs li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: rgba(238, 244, 255, 0.3);
+}
+
+.ot-page-header__crumbs a {
+  color: var(--ot-slate);
+  text-decoration: none;
+}
+
+.ot-page-header__crumbs a:hover {
+  color: var(--ot-white);
+}
+
+.ot-page-header__crumbs li:last-child {
+  color: var(--ot-cyan);
+}
+
+@media (max-width: 767px) {
+  .ot-page-header {
+    padding: 130px 0 50px;
+  }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.ot-hero {
+  position: relative;
+  padding: 190px 0 140px;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(26, 110, 245, 0.25), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(34, 211, 238, 0.12), transparent 55%),
+    linear-gradient(180deg, var(--ot-bg) 0%, var(--ot-navy-900) 100%);
+  overflow: hidden;
+}
+
+/* Linha de corrente — o motivo "onda" atravessando o hero */
+.ot-hero__current {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.ot-hero__current svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ot-hero__current path {
+  fill: none;
+  stroke-width: 1.4;
+}
+
+.ot-hero__current .line-a {
+  stroke: url(#ot-grad-a);
+  stroke-dasharray: 6 10;
+  animation: ot-flow 14s linear infinite;
+}
+
+.ot-hero__current .line-b {
+  stroke: url(#ot-grad-b);
+  opacity: 0.5;
+  stroke-dasharray: 4 14;
+  animation: ot-flow 20s linear infinite reverse;
+}
+
+@keyframes ot-flow {
+  to { stroke-dashoffset: -400; }
+}
+
+.ot-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.ot-hero__inner.text-center {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.ot-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  color: var(--ot-cyan);
+  font-family: var(--ot-font-label);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 8px 20px 8px 16px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+}
+
+.ot-hero__badge i {
+  font-size: 15px;
+}
+
+.ot-hero h1 {
+  font-family: var(--ot-font-display);
+  font-weight: 800;
+  font-size: clamp(34px, 5.2vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -1px;
+  color: var(--ot-white);
+  margin-bottom: 24px;
+}
+
+.ot-hero h1 span {
+  background: linear-gradient(100deg, var(--ot-blue-light), var(--ot-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ot-hero p.ot-lead {
+  font-size: 18px;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.ot-hero__inner.text-center p.ot-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ot-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.ot-hero__inner.text-center .ot-hero__actions {
+  justify-content: center;
+}
+
+/* Diferenciais dentro do hero */
+.ot-diffs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 32px;
+  max-width: 900px;
+}
+
+.ot-hero__inner.text-center .ot-diffs {
+  margin: 0 auto;
+}
+
+.ot-diffs__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ot-font-label);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ot-ice);
+}
+
+.ot-diffs__item i {
+  color: var(--ot-cyan);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ---------- Divisor de onda entre seções ---------- */
+.ot-wave-divider {
+  display: block;
+  width: 100%;
+  line-height: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ot-wave-divider svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+/* ============================================================
+   SEÇÃO CLARA (fundo gelo) — usada para "Como trabalhamos" etc.
+   ============================================================ */
+.ot-section--light {
+  background: var(--ot-ice);
+}
+
+.ot-section--light .ot-h2 { color: var(--ot-navy-900); }
+.ot-section--light .ot-lead { color: #4a5578; }
+.ot-section--light .ot-eyebrow { color: var(--ot-blue); }
+.ot-section--light .ot-eyebrow::before { background: var(--ot-blue); }
+
+/* ============================================================
+   SERVIÇOS — grid de cards
+   ============================================================ */
+.ot-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ot-service-card {
+  position: relative;
+  background: var(--ot-card-bg);
+  border: 1px solid var(--ot-card-border);
+  border-radius: var(--ot-radius-md);
+  padding: 34px 28px;
+  box-shadow: 0 4px 24px rgba(10, 22, 48, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ot-service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(26, 110, 245, 0.35);
+  box-shadow: 0 18px 40px rgba(10, 22, 48, 0.1);
+}
+
+.ot-service-card__icon {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(26, 110, 245, 0.1);
+  color: var(--ot-blue);
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 22px;
+}
+
+.ot-service-card:hover .ot-service-card__icon {
+  background: rgba(26, 110, 245, 0.16);
+  color: var(--ot-navy-900);
+}
+
+.ot-service-card h3 {
+  font-family: var(--ot-font-display);
+  font-size: 18.5px;
+  font-weight: 700;
+  color: var(--ot-text-dark);
+  margin-bottom: 10px;
+}
+
+.ot-service-card p {
+  font-family: var(--ot-font-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ot-text-muted);
+  margin-bottom: 18px;
+}
+
+.ot-service-card a.ot-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ot-font-label);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ot-blue);
+}
+
+.ot-service-card a.ot-card-link i {
+  transition: transform 0.25s ease;
+}
+
+.ot-service-card a.ot-card-link:hover {
+  color: #0d4fc4;
+}
+
+.ot-service-card a.ot-card-link:hover i {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   COMO TRABALHAMOS — timeline horizontal
+   ============================================================ */
+.ot-process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.ot-process::before {
+  content: "";
+  position: absolute;
+  top: 27px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--ot-blue) 0 10px, transparent 10px 18px);
+  z-index: 0;
+}
+
+.ot-process-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 14px;
+}
+
+.ot-process-step__num {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--ot-navy-900);
+  border: 2px solid var(--ot-blue);
+  color: var(--ot-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ot-font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.ot-process-step h4 {
+  font-family: var(--ot-font-display);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ot-navy-900);
+  margin-bottom: 8px;
+}
+
+.ot-process-step p {
+  font-family: var(--ot-font-body);
+  font-size: 13.5px;
+  color: #4a5578;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   PROJETOS EM DESTAQUE — cards de estudo de caso
+   ============================================================ */
+.ot-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.ot-case-card {
+  background: var(--ot-card-bg);
+  border: 1px solid var(--ot-card-border);
+  border-radius: var(--ot-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 24px rgba(10, 22, 48, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ot-case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(10, 22, 48, 0.14);
+}
+
+.ot-case-card__img {
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.ot-case-card__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(255,255,255,0.97) 100%);
+}
+
+.ot-case-card__tag {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+  z-index: 2;
+  font-family: var(--ot-font-label);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--ot-white);
+  background: rgba(26,110,245,0.85);
+  padding: 5px 14px;
+  border-radius: 50px;
+}
+
+.ot-case-card__body {
+  padding: 26px 24px 28px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ot-case-card__body h3 {
+  font-family: var(--ot-font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ot-text-dark);
+  margin-bottom: 16px;
+}
+
+.ot-case-card__row {
+  margin-bottom: 12px;
+}
+
+.ot-case-card__row .label {
+  display: block;
+  font-family: var(--ot-font-label);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ot-blue);
+  margin-bottom: 3px;
+}
+
+.ot-case-card__row p {
+  font-family: var(--ot-font-body);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ot-text-muted);
+  margin: 0;
+}
+
+.ot-case-card__cta {
+  margin-top: auto;
+  padding-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ot-font-label);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ot-text-dark);
+  border-top: 1px solid var(--ot-card-border);
+}
+
+.ot-case-card__cta i {
+  color: var(--ot-blue);
+  transition: transform 0.25s ease;
+}
+
+.ot-case-card:hover .ot-case-card__cta i {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   DEPOIMENTOS (placeholder preparado)
+   ============================================================ */
+.ot-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ot-testimonial-card {
+  background: var(--ot-card-bg);
+  border: 1px dashed rgba(10, 22, 48, 0.15);
+  border-radius: var(--ot-radius-md);
+  padding: 30px 26px;
+  text-align: center;
+}
+
+.ot-testimonial-card i.bi-quote {
+  font-size: 26px;
+  color: var(--ot-blue);
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.ot-testimonial-card p {
+  font-family: var(--ot-font-body);
+  font-size: 14px;
+  color: var(--ot-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.ot-final-cta {
+  position: relative;
+  background: linear-gradient(135deg, var(--ot-navy-900), var(--ot-bg));
+  border-top: 1px solid var(--ot-line);
+  padding: 100px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.ot-final-cta::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(26,110,245,0.25), transparent 65%);
+  top: -250px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ot-final-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.ot-final-cta h2 {
+  font-family: var(--ot-font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 40px);
+  color: var(--ot-white);
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.ot-final-cta p {
+  font-family: var(--ot-font-body);
+  color: var(--ot-slate);
+  font-size: 16.5px;
+  margin-bottom: 36px;
+}
+
+/* ============================================================
+   FOOTER — pequenos ajustes ao tema escuro
+   ============================================================ */
+body.ot-dark-header #footer {
+  background: var(--ot-bg);
+  border-top: 1px solid var(--ot-line);
+}
+
+/* ============================================================
+   ANIMAÇÕES DE ENTRADA (reveal)
+   ============================================================ */
+.ot-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.ot-reveal.ot-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ot-reveal { opacity: 1 !important; transform: none !important; }
+  .ot-hero__current .line-a,
+  .ot-hero__current .line-b { animation: none !important; }
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 1199px) {
+  .ot-services-grid,
+  .ot-case-grid,
+  .ot-testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ot-process {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .ot-hero {
+    padding: 150px 0 100px;
+  }
+
+  .ot-diffs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ot-process {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+
+  .ot-process::before {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --ot-section-y: 76px;
+  }
+
+  .ot-services-grid,
+  .ot-case-grid,
+  .ot-testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ot-diffs {
+    grid-template-columns: 1fr;
+  }
+
+  .ot-process {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .ot-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ot-hero__actions .ot-btn {
+    width: 100%;
+  }
+
+  .ot-nav-cta {
+    display: none !important;
+  }
+}
