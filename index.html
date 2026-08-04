@@ -88,6 +88,7 @@
   <link href="assets/css/responsive.css" rel="stylesheet">
   <!-- Onda Tech Design System 2.0 -->
   <link href="assets/css/onda-theme.css" rel="stylesheet">
+  <link href="assets/css/ot-chat.css" rel="stylesheet">
 </head>
 
 <body class="ot-page ot-dark-header">
@@ -479,6 +480,31 @@
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
+  <!-- Onda Tech — Chat Widget com IA -->
+  <div id="ot-chat-widget">
+    <button id="ot-chat-toggle" aria-label="Abrir chat com assistente Onda Tech">
+      <i class="bi bi-chat-dots-fill"></i>
+      <span class="ot-chat-badge"></span>
+    </button>
+    <div id="ot-chat-window" class="ot-chat-hidden">
+      <div class="ot-chat-header">
+        <div class="ot-chat-header-info">
+          <span class="ot-chat-avatar"><i class="bi bi-cpu-fill"></i></span>
+          <div>
+            <strong>Onda Tech</strong>
+            <span>assistente virtual</span>
+          </div>
+        </div>
+        <button id="ot-chat-close" aria-label="Fechar chat"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div id="ot-chat-messages" class="ot-chat-messages"></div>
+      <form id="ot-chat-form" class="ot-chat-form">
+        <input id="ot-chat-input" type="text" placeholder="Digite sua mensagem..." autocomplete="off" required>
+        <button type="submit" aria-label="Enviar"><i class="bi bi-send-fill"></i></button>
+      </form>
+    </div>
+  </div>
+
   <!-- Vendor JS Files -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -490,6 +516,9 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Onda Tech — Chat Widget com IA -->
+  <script src="assets/js/ot-chat.js"></script>
 
   <!-- Reveal on scroll (elementos .ot-reveal) -->
   <script>

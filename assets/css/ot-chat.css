@@ -1,0 +1,174 @@
+/* ============================================================
+   ONDA TECH — CHAT WIDGET (assistente com IA)
+   Usa as variáveis de assets/css/onda-theme.css
+   Carregar DEPOIS de onda-theme.css
+   ============================================================ */
+
+#ot-chat-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1200;
+  font-family: var(--ot-font-body, 'Open Sans', sans-serif);
+}
+
+/* Evita sobrepor o back-to-top do template */
+.back-to-top { bottom: 96px !important; }
+
+/* ---------- Botão flutuante ---------- */
+#ot-chat-toggle {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(150deg, var(--ot-blue, #1a6ef5), var(--ot-navy-700, #142a5e));
+  color: #fff;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(26, 110, 245, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+#ot-chat-toggle:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(26, 110, 245, 0.5); }
+#ot-chat-toggle .ot-chat-badge {
+  position: absolute;
+  top: -2px; right: -2px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ot-cyan, #22d3ee);
+  border: 2px solid #fff;
+  animation: ot-chat-pulse 1.8s ease-in-out infinite;
+}
+@keyframes ot-chat-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0.55); }
+  50% { box-shadow: 0 0 0 6px rgba(34,211,238,0); }
+}
+
+/* ---------- Janela do chat ---------- */
+#ot-chat-window {
+  position: absolute;
+  right: 0;
+  bottom: 78px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 500px;
+  max-height: 70vh;
+  background: var(--ot-card-bg, #fff);
+  border-radius: var(--ot-radius-lg, 24px);
+  box-shadow: 0 24px 60px rgba(10, 22, 48, 0.28);
+  border: 1px solid var(--ot-card-border, rgba(10,22,48,0.08));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: bottom right;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+#ot-chat-window.ot-chat-hidden {
+  opacity: 0;
+  transform: scale(0.92) translateY(8px);
+  pointer-events: none;
+}
+
+.ot-chat-header {
+  background: linear-gradient(120deg, var(--ot-navy-900, #0a1630), var(--ot-navy-700, #142a5e));
+  color: #fff;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+}
+.ot-chat-header-info { display: flex; align-items: center; gap: 10px; }
+.ot-chat-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(150deg, var(--ot-blue-light, #5b9cff), var(--ot-cyan, #22d3ee));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex: none;
+}
+.ot-chat-header-info strong { display: block; font-family: var(--ot-font-display, 'Poppins', sans-serif); font-size: 0.92rem; line-height: 1.3; }
+.ot-chat-header-info span { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
+#ot-chat-close {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+#ot-chat-close:hover { background: rgba(255,255,255,0.2); }
+
+.ot-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--ot-page-bg, #f4f7fc);
+}
+.ot-msg { max-width: 84%; font-size: 0.87rem; line-height: 1.45; padding: 10px 14px; border-radius: 14px; word-wrap: break-word; }
+.ot-msg-bot {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--ot-text-dark, #101a38);
+  border: 1px solid var(--ot-card-border, rgba(10,22,48,0.08));
+  border-bottom-left-radius: 4px;
+}
+.ot-msg-user {
+  align-self: flex-end;
+  background: linear-gradient(120deg, var(--ot-blue, #1a6ef5), var(--ot-blue-light, #5b9cff));
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.ot-msg a { color: inherit; text-decoration: underline; }
+
+.ot-chat-typing { align-self: flex-start; display: flex; gap: 4px; padding: 12px 14px; background: #fff; border: 1px solid var(--ot-card-border, rgba(10,22,48,0.08)); border-radius: 14px; border-bottom-left-radius: 4px; }
+.ot-chat-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--ot-slate-dark, #5c6a8f); animation: ot-typing-bounce 1.1s ease-in-out infinite; }
+.ot-chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.ot-chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes ot-typing-bounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+.ot-chat-form {
+  flex: none;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--ot-card-border, rgba(10,22,48,0.08));
+  background: #fff;
+}
+.ot-chat-form input {
+  flex: 1;
+  border: 1px solid var(--ot-card-border, rgba(10,22,48,0.12));
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 0.86rem;
+  font-family: inherit;
+  outline: none;
+  color: var(--ot-text-dark, #101a38);
+}
+.ot-chat-form input:focus { border-color: var(--ot-blue, #1a6ef5); }
+.ot-chat-form button {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--ot-blue, #1a6ef5);
+  color: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex: none;
+  transition: background 0.2s ease;
+}
+.ot-chat-form button:hover { background: var(--ot-navy-700, #142a5e); }
+.ot-chat-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 480px) {
+  #ot-chat-widget { right: 16px; bottom: 16px; }
+  #ot-chat-window { width: calc(100vw - 24px); right: -8px; height: 62vh; }
+}
