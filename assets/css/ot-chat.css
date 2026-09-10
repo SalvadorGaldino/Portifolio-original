@@ -169,6 +169,18 @@
 .ot-chat-form button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 @media (max-width: 480px) {
-  #ot-chat-widget { right: 16px; bottom: 16px; }
-  #ot-chat-window { width: calc(100vw - 24px); right: -8px; height: 62vh; }
+  #ot-chat-widget {
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  #ot-chat-toggle { width: 56px; height: 56px; font-size: 23px; }
+  #ot-chat-window {
+    width: calc(100vw - 24px);
+    right: -8px;
+    height: 62vh;
+    height: 62dvh; /* dvh ignora a barra de endereço do navegador mobile */
+    max-height: 62dvh;
+  }
+  /* Evita o zoom automático do Safari/iOS ao focar um input com font-size < 16px */
+  .ot-chat-form input { font-size: 16px; }
 }

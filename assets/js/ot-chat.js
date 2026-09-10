@@ -1,70 +1,123 @@
-// /api/chat.js — Vercel Serverless Function
-// Recebe o histórico da conversa do widget e repassa para a API da Anthropic.
-// A ANTHROPIC_API_KEY fica só aqui no servidor (variável de ambiente na Vercel),
-// nunca é exposta no navegador do visitante.
+/* Onda Tech — Chat Widget com IA */
+(function () {
+  const toggle = document.getElementById('ot-chat-toggle');
+  const win = document.getElementById('ot-chat-window');
+  const closeBtn = document.getElementById('ot-chat-close');
+  const form = document.getElementById('ot-chat-form');
+  const input = document.getElementById('ot-chat-input');
+  const messagesEl = document.getElementById('ot-chat-messages');
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
-const SYSTEM_PROMPT = `Você é o assistente virtual da Onda Tech, empresa de tecnologia de Salvador Galdino, sediada no Paraná, Brasil.
+  if (!toggle || !win || !form) return;
 
-A Onda Tech oferece: sites profissionais institucionais, sistemas web sob medida, landing pages, automação de processos, integrações entre sistemas, painéis administrativos, SEO, manutenção e suporte, e soluções de inteligência artificial para empresas. Também é parceira da Galdino Sistemas, revenda oficial do ERP LC Sistemas (para empresas que precisam de ERP completo).
+  let history = []; // { role: 'user' | 'assistant', content: string }
+  let opened = false;
+  let sending = false;
 
-Seu papel:
-- Entender rapidamente o que o visitante precisa (site, sistema, loja online, automação, IA etc).
-- Explicar de forma breve e clara como a Onda Tech pode ajudar.
-- Quando o visitante demonstrar interesse real (quer orçamento, quer começar um projeto, tem uma ideia concreta), conduzir para o WhatsApp (41) 99707-5291, sempre citando o link https://wa.me/5541997075291.
+  const GREETING = 'Oi! 👋 Sou o assistente virtual da Onda Tech. Posso te ajudar a entender qual solução faz sentido pro seu negócio: site, sistema, automação ou IA. Me conta o que você precisa!';
 
-Regras:
-- Respostas curtas: 2 a 4 frases, direto ao ponto, português do Brasil, tom profissional e acessível.
-- Nunca invente preços exatos ou prazos fechados — diga que o orçamento é personalizado e é feito conversando no WhatsApp.
-- Se perguntarem algo totalmente fora do escopo de tecnologia/negócios, responda educadamente e traga de volta para como a Onda Tech pode ajudar.
-- Não use markdown pesado (sem títulos, sem listas longas) — é um chat, escreva como uma pessoa real digitando.`;
-
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ error: 'Método não permitido' });
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  const { messages } = req.body || {};
-
-  if (!Array.isArray(messages) || messages.length === 0) {
-    return res.status(400).json({ error: 'Campo "messages" é obrigatório' });
+  function addMessage(role, text) {
+    const div = document.createElement('div');
+    div.className = 'ot-msg ' + (role === 'user' ? 'ot-msg-user' : 'ot-msg-bot');
+    div.innerHTML = linkify(text);
+    messagesEl.appendChild(div);
+    scrollToBottom();
   }
 
-  // Limita o histórico enviado (economiza tokens e mantém o contexto recente)
-  const trimmed = messages.slice(-14).map((m) => ({
-    role: m.role === 'assistant' ? 'assistant' : 'user',
-    content: String(m.content || '').slice(0, 2000),
-  }));
+  function linkify(text) {
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    return escaped.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  }
 
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 400,
-        system: SYSTEM_PROMPT,
-        messages: trimmed,
-      }),
-    });
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'ot-chat-typing';
+    div.id = 'ot-chat-typing-indicator';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    messagesEl.appendChild(div);
+    scrollToBottom();
+  }
 
-    const data = await response.json();
+  function hideTyping() {
+    const el = document.getElementById('ot-chat-typing-indicator');
+    if (el) el.remove();
+  }
 
-    if (!response.ok) {
-      console.error('Erro Anthropic API:', data);
-      return res.status(502).json({ error: 'Falha ao consultar a IA' });
+  function openChat() {
+    win.classList.remove('ot-chat-hidden');
+    opened = true;
+    if (history.length === 0) {
+      addMessage('assistant', GREETING);
+      history.push({ role: 'assistant', content: GREETING });
     }
-
-    const textBlock = (data.content || []).find((b) => b.type === 'text');
-    const reply = textBlock ? textBlock.text : 'Desculpe, não consegui responder agora. Tente novamente ou fale direto no WhatsApp: https://wa.me/5541997075291';
-
-    return res.status(200).json({ reply });
-  } catch (err) {
-    console.error('Erro na função /api/chat:', err);
-    return res.status(500).json({ error: 'Erro interno no servidor' });
+    input.focus();
   }
-}
+
+  function closeChat() {
+    win.classList.add('ot-chat-hidden');
+  }
+
+  toggle.addEventListener('click', () => {
+    if (win.classList.contains('ot-chat-hidden')) openChat();
+    else closeChat();
+  });
+  closeBtn.addEventListener('click', closeChat);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text || sending) return;
+
+    addMessage('user', text);
+    history.push({ role: 'user', content: text });
+    input.value = '';
+    sending = true;
+    submitBtn.disabled = true;
+    showTyping();
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 25000); // evita ficar "digitando..." pra sempre em rede lenta/mobile
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}));
+        throw new Error('HTTP ' + res.status + ': ' + (errBody.error || res.statusText));
+      }
+
+      const data = await res.json();
+      hideTyping();
+
+      const reply = data.reply || 'Desculpe, não consegui responder agora. Pode falar direto no WhatsApp: https://wa.me/5541997075291';
+      addMessage('assistant', reply);
+      history.push({ role: 'assistant', content: reply });
+    } catch (err) {
+      clearTimeout(timeoutId);
+      hideTyping();
+      // Log visível no console do navegador (Desktop: F12 | Mobile: chrome://inspect ou Safari Web Inspector)
+      // pra facilitar diagnóstico: erro de rede, 404 (não publicado), 500 (falta ANTHROPIC_API_KEY) etc.
+      console.error('[ot-chat] Falha ao consultar /api/chat:', err);
+      const fallback = 'Tive um problema pra responder agora. Fala com a gente direto no WhatsApp: https://wa.me/5541997075291';
+      addMessage('assistant', fallback);
+      history.push({ role: 'assistant', content: fallback });
+    } finally {
+      sending = false;
+      submitBtn.disabled = false;
+      input.focus();
+    }
+  });
+})();
